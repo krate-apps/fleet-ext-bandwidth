@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "extensionId": "org.fleet.bandwidth",
+  "pages": [
+    {
+      "id": "bandwidth",
+      "title": "Bandwidth Limits",
+      "route": "/ext/org.fleet.bandwidth/bandwidth"
+    }
+  ],
+  "actions": [
+    {
+      "id": "set-limits",
+      "label": "Set bandwidth…",
+      "target": "selection",
+      "primary": true
+    },
+    {
+      "id": "clear-limits",
+      "label": "Clear bandwidth",
+      "target": "selection"
+    }
+  ],
+  "panels": [
+    {
+      "id": "bandwidth",
+      "title": "Bandwidth",
+      "placement": "settings"
+    }
+  ],
+  "forms": [
+    {
+      "id": "bandwidth-settings",
+      "title": "Default limits (KiB/s)",
+      "loadMethod": "ext.bandwidth.getSettings",
+      "submitMethod": "ext.bandwidth.saveSettings",
+      "fields": [
+        {
+          "name": "defaultUpKiBps",
+          "label": "Default upload (KiB/s, 0 = unlimited)",
+          "kind": "number",
+          "required": true
+        },
+        {
+          "name": "defaultDownKiBps",
+          "label": "Default download (KiB/s, 0 = unlimited)",
+          "kind": "number",
+          "required": true
+        }
+      ],
+      "description": "Default upload and download limits in KiB/s (0 = unlimited). Applied per torrent on each client."
+    }
+  ]
+}
